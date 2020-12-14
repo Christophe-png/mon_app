@@ -2,14 +2,15 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { PureComponent, PureComponentProps } from "./components/PureComponent";
+import StateComponent from "./components/StateComponent";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <StateComponent />
         <PureComponent />
         <PureComponentProps label={"christophe"} age={48} />
-
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit Christophe Modification <code>src/App.js</code> and save to
