@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <StateComponent />
+        <StateComponent label={"Christophe"} />
         <PureComponent />
         <PureComponentProps label={"christophe"} age={48} />
         <img src={logo} className="App-logo" alt="logo" />
