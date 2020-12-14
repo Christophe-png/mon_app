@@ -1,14 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { PureComponent, PureComponentProps } from "./components/PureComponent";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <PureComponent />
+        <PureComponentProps label={"christophe"} age={48} />
+
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Edit Christophe Modification <code>src/App.js</code> and save to
+          reload.
         </p>
+
         <a
           className="App-link"
           href="https://reactjs.org"
