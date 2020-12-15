@@ -13,9 +13,10 @@ class StateComponent extends React.Component {
     this.state = { nom: "" };
   }
 
-  handleChange() {
-    this.setState({ nom: "le nouveau" });
-  }
+  handleChange = (e) => {
+    this.setState({ nom: e.target.value });
+    this.props.onInputChange(e.target.value);
+  };
 
   render() {
     return (
@@ -24,7 +25,7 @@ class StateComponent extends React.Component {
         <input
           type="text"
           value={this.state.nom}
-          onChange={this.handleChange}
+          onChange={this.handleChange.bind(this)}
         ></input>
       </div>
     );
