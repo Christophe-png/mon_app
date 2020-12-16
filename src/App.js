@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { PureComponent, PureComponentProps } from "./components/PureComponent";
 import StateComponent from "./components/StateComponent";
+import CompoCycleDeVie from "./components/CompoCycleDeVie";
 
 class App extends Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+          <CompoCycleDeVie />
           <StateComponent
             label={"Christophe"}
             onInputChange={this.onInputChange}

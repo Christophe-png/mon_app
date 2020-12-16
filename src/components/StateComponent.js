@@ -9,7 +9,7 @@ import "./StateComponent.css";
 class StateComponent extends React.Component {
   constructor(props) {
     super(props);
-    console.log("label" + props.label);
+    //console.log("label" + props.label);
     this.state = { nom: "" };
   }
 
