@@ -4,6 +4,7 @@ import "./App.css";
 import { PureComponent, PureComponentProps } from "./components/PureComponent";
 import StateComponent from "./components/StateComponent";
 import CompoCycleDeVie from "./components/CompoCycleDeVie";
+import FilterableJeuxTable from "./components/jeux/FilterableJeuxTable";
 
 class App extends Component {
   constructor(props) {
@@ -20,21 +21,43 @@ class App extends Component {
     this.setState({ stateApp: val });
   };
   render() {
+    let mesLabel = [];
+    const JEUX = [];
+    JEUX.push({
+      category: "FPS",
+      price: "10€",
+      stocked: true,
+      name: "Counter Strike",
+    });
+    JEUX.push({
+      category: "FPS",
+      price: "40€",
+      stocked: true,
+      name: "BattleField",
+    });
+    JEUX.push({ category: "FPS", price: "20€", stocked: true, name: "PUBG" });
+    JEUX.push({
+      category: "Aventure",
+      price: "20€",
+      stocked: true,
+      name: "Tomb Raider",
+    });
+    JEUX.push({
+      category: "Aventure",
+      price: "40€",
+      stocked: false,
+      name: "Uncharted",
+    });
+    JEUX.push({
+      category: "Aventure",
+      price: "50€",
+      stocked: true,
+      name: "Zelda",
+    });
     return (
       <div className="App">
         <header className="App-header">
-          <CompoCycleDeVie />
-          <StateComponent
-            label={"Christophe"}
-            onInputChange={this.onInputChange}
-          />
-          <PureComponent />
-          <PureComponentProps label={this.state.stateApp} age={48} />
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit Christophe Modification <code>src/App.js</code> and save to
-            reload.
-          </p>
+          <FilterableJeuxTable jeux={JEUX} />
 
           <a
             className="App-link"
