@@ -11,7 +11,11 @@ class JeuxCategory extends React.Component {
   }
 
   render() {
-    return <div style={{ backgroundColor: "orange" }}>JeuxCategory</div>;
+    return (
+      <tr>
+        <th colSpan="2">{this.props.category}</th>
+      </tr>
+    );
   }
 }
 export default JeuxCategory;

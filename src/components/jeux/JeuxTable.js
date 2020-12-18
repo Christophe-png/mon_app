@@ -14,11 +14,25 @@ class JeuxTable extends React.Component {
   }
 
   render() {
+    const rows = [];
+    this.props.jeux.forEach((jeu) => {
+      console.log("jeu", jeu.name);
+      rows.push(<JeuxRow key={jeu.name} jeu={jeu} />);
+    });
+    //rows.push(<JeuxRow key="1" jeu/>);
+    //rows.push(<JeuxRow key="2" />);
     return (
       <div style={{ backgroundColor: "violet" }}>
-        JeuxTable
-        <JeuxCategory />
-        <JeuxRow />
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <JeuxCategory category={"FPS"} />
+          {rows}
+        </table>
       </div>
     );
   }
