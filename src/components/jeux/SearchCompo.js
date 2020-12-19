@@ -13,17 +13,20 @@ class SearchCompo extends React.Component {
   }
 
   handleFilterTextChange(e) {
-    console.log(e.target.value);
+    //console.log(e.target.value);
+    this.props.handleFilterTextChange(e.target.value);
   }
   handleInStockChange(e) {
-    console.log(e.target.checked);
+    //console.log(e.target.checked);
+    this.props.handleInStockChange(e.target.checked);
   }
   render() {
     return (
-      <div style={{ backgroundColor: "red" }}>
+      <div>
         <input
           type="text"
           placeholder="search"
+          text={this.props.filterText}
           onChange={this.handleFilterTextChange}
         />
         <input type="checkbox" onChange={this.handleInStockChange} />

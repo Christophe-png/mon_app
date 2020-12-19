@@ -14,15 +14,24 @@ class JeuxTable extends React.Component {
   }
 
   render() {
+    const filterText = this.props.filterText;
+    const inStockOnly = this.props.inStockOnly;
+
     const rows = [];
     this.props.jeux.forEach((jeu) => {
       console.log("jeu", jeu.name);
+      if (jeu.name.indexOf(filterText) === -1) {
+        return;
+      }
+      if (inStockOnly && !jeu.stocked) {
+        return;
+      }
       rows.push(<JeuxRow key={jeu.name} jeu={jeu} />);
     });
     //rows.push(<JeuxRow key="1" jeu/>);
     //rows.push(<JeuxRow key="2" />);
     return (
-      <div style={{ backgroundColor: "violet" }}>
+      <div>
         <table>
           <thead>
             <tr>
