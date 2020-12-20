@@ -10,23 +10,26 @@ import JeuxRow from "./JeuRow";
 class JeuxTable extends React.Component {
   constructor(props) {
     super(props);
-    console.log("JeuxTable les jeux", props.jeux);
   }
 
   render() {
     const filterText = this.props.filterText;
     const inStockOnly = this.props.inStockOnly;
+    let lastCategory;
 
     const rows = [];
-    this.props.jeux.forEach((jeu) => {
-      console.log("jeu", jeu.name);
-      if (jeu.name.indexOf(filterText) === -1) {
+    this.props.jeux.forEach(function (jeu) {
+      if (jeu.name.toLowerCase().indexOf(filterText) === -1) {
         return;
       }
       if (inStockOnly && !jeu.stocked) {
         return;
       }
+      if (jeu.category !== lastCategory) {
+        rows.push(<JeuxCategory category={jeu.category} />);
+      }
       rows.push(<JeuxRow key={jeu.name} jeu={jeu} />);
+      lastCategory = jeu.category;
     });
     //rows.push(<JeuxRow key="1" jeu/>);
     //rows.push(<JeuxRow key="2" />);
@@ -39,7 +42,7 @@ class JeuxTable extends React.Component {
               <th>Price</th>
             </tr>
           </thead>
-          <JeuxCategory category={"FPS"} />
+
           {rows}
         </table>
       </div>

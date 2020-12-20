@@ -29,7 +29,11 @@ class SearchCompo extends React.Component {
           text={this.props.filterText}
           onChange={this.handleFilterTextChange}
         />
-        <input type="checkbox" onChange={this.handleInStockChange} />
+        <input
+          type="checkbox"
+          checked={this.props.inStockOnly}
+          onChange={this.handleInStockChange}
+        />
         {""}
         Produit en stock seulement
       </div>

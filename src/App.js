@@ -32,7 +32,7 @@ class App extends Component {
     JEUX.push({
       category: "FPS",
       price: "40€",
-      stocked: true,
+      stocked: false,
       name: "BattleField",
     });
     JEUX.push({ category: "FPS", price: "20€", stocked: true, name: "PUBG" });
